@@ -52,6 +52,11 @@ header {
 
 .card {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  height: 310px;
+}
+
+.card-img-top{
+  height: 200px;
 }
 
 .restaurant-category {
