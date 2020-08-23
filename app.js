@@ -9,18 +9,14 @@ app.engine('handlebars', exphds({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
 app.get('/', (req, res) => {
-  // const restaurantOne = {
-  //   image: 'https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5635/01.jpg',
-  //   title: 'Sababa 沙巴巴中東美食食食食',
-  //   category: '中東料理理理理',
-  //   rating: '4.11111',
-  // }
   res.render('index', { restaurants: resuaurantList.results })
 })
 
-// app.get('/restaurants/1', (req, res) => {
-
-// })
+app.get('/restaurants/:id', (req, res) => {
+  console.log('req.params', req.params.id)
+  const restaurant = resuaurantList.results.find(restaurant => restaurant.id.toString() === req.params.id)
+  res.render('show', { restaurant: restaurant })
+})
 
 //setting static files
 app.use(express.static('public'))
